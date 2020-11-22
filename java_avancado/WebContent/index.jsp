@@ -12,6 +12,7 @@
 	
 	<form action="receber.jsp" method="post">
 	<input type="text" name="nome" id="nome" placeholder="Digite seu nome: " /> <br>
+	<input type="email" name="email" id="email" placeholder="Digite seu email: " /> <br>
 	<input type="submit" value="Enviar"/>
 	</form>
 </body>
