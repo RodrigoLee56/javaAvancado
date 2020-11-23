@@ -1,4 +1,4 @@
-<jsp:useBean id="calcula" class="beans.BeanCursoJSP" type="beans.BeanCursoJSP" scope="page"/>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,6 +16,12 @@
 	<input type="email" name="email" id="email" placeholder="Digite seu email: " /> <br>
 	<input type="submit" value="Enviar"/>
 	</form> --%>
-	<%=calcula.calcula(50) %>
+	<%-- <%=calcula.calcula(50) %> --%>
+	<form action="receber.jsp" method="get">
+		<input type="text" name="nome" id="nome" placeholder="Digite seu nome:" /> <br><br>
+		<input type="text" name="ano" id="ano" placeholder="Data Nascimento:" /> <br><br>
+		<input type="text" name="sexo" id="sexo" placeholder="M ou F:" /> <br><br>
+		<input type="submit" value="Enviar"/>
+	</form>
 </body>
 </html>
