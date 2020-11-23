@@ -20,7 +20,6 @@
 	<form action="receber.jsp" method="get">
 		<input type="text" name="nome" id="nome" placeholder="Digite seu nome:" /> <br><br>
 		<input type="text" name="ano" id="ano" placeholder="Data Nascimento:" /> <br><br>
-		<input type="text" name="sexo" id="sexo" placeholder="M ou F:" /> <br><br>
 		<input type="submit" value="Enviar"/>
 	</form>
 </body>
