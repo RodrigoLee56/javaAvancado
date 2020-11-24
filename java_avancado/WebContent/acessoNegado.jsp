@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h3>Acesso Negado</h3>
+	<h3>Senha ou email errado.</h3>
 </body>
 </html>
