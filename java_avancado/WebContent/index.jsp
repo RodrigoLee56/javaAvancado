@@ -21,7 +21,6 @@
 		<input type="text" name="nome" id="nome" placeholder="Digite seu nome:" /> <br><br>
 		<input type="text" name="ano" id="ano" placeholder="Data Nascimento:" /> <br><br>
 		<input type="submit" value="Enviar"/>
-		vou ver se tá funcionando o commit OK
 	</form>
 </body>
 </html>

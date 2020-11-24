@@ -1,10 +1,11 @@
 package model;
 
+//import java.util.Scanner;
+
 public class Teste {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.print("Apenas um teste!");
+		System.out.println("Teste!");
 	}
-
 }
