@@ -15,6 +15,14 @@ public class Login {
 		this.senha = senha;
 	}
 
+	public boolean validarLoginSenha(String login, String senha) {
+		if (login.equalsIgnoreCase("Admin") && senha.equalsIgnoreCase("123")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public String getLogin() {
 		return login;
 	}
