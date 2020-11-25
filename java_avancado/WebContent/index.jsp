@@ -1,6 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,6 +69,8 @@ input[type="submit"]:hover {
 </style>
 </head>
 <body>
+	<c:out value="${'Bem vindo ao JSTL'}"/>
+	<br>
 	<h1>Java Avançado</h1>
 	<%-- <%="Java Avançado..." %>
 	
@@ -82,5 +85,6 @@ input[type="submit"]:hover {
 		<input type="password" name="senha" id="senha" placeholder="Digite sua senha:" /> 
 		<input type="submit" value="Entrar" />
 	</form>
+	
 </body>
 </html>
