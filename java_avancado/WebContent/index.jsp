@@ -12,8 +12,8 @@
 	<h1>Java Avançado</h1>
 
 	<form action="LoginServlet" method="post">
-		<input type="text" name="login" id="login" placeholder="Digite seu login:" /> 
-		<input type="password" name="senha" id="senha" placeholder="Digite sua senha:" /> 
+		<input type="text" name="login" id="login" required="required" placeholder="Digite seu login:" /> 
+		<input type="password" name="senha" id="senha" required="required" placeholder="Digite sua senha:" /> 
 		<input type="submit" value="Entrar" />
 	</form>
 </body>
