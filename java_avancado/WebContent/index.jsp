@@ -13,7 +13,7 @@
 	<c:out value="${'Bem vindo ao JSTL'}"/>
 	<br>
 	<h1>Java Avançado</h1>
-	
+
 	<form action="LoginServlet" method="post">
 		<input type="text" name="login" id="login" placeholder="Digite seu login:" /> 
 		<input type="password" name="senha" id="senha" placeholder="Digite sua senha:" /> 
