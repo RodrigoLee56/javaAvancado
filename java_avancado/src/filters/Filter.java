@@ -16,18 +16,18 @@ import connection.SingleConnection;
 @WebFilter(urlPatterns = { "/*" })
 public class Filter implements javax.servlet.Filter {
 
-	private static Connection connectio = SingleConnection.getConnection();
+	private static Connection connection;
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		try {
 			chain.doFilter(request, response);
-			connectio.commit();
+			connection.commit();
 		} catch (Exception e) {
 			try {
 				e.printStackTrace();
-				connectio.rollback();
+				connection.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
@@ -37,7 +37,7 @@ public class Filter implements javax.servlet.Filter {
 
 	@Override
 	public void init(FilterConfig config) {
-		SingleConnection.getConnection();
+		connection = SingleConnection.getConnection();
 	}
 
 }
