@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,11 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Login;
+import dao.LoginDAO;
+//import model.Login;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	LoginDAO loginDAO = new LoginDAO();
 
 	public LoginServlet() {
 		super();
@@ -26,17 +29,29 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Login loginModel = new Login();
-		String login = request.getParameter("login");
-		String senha = request.getParameter("senha");
+		try {
+			String login = request.getParameter("login");
+			String senha = request.getParameter("senha");
 
-		if (loginModel.validarLoginSenha(login, senha)) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("acessoPermitido.jsp");
-			dispatcher.forward(request, response);
-		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("acessoNegado.jsp");
-			dispatcher.forward(request, response);
+			if (loginDAO.validarLogin(login, senha)) {
+//				if (loginDAO.validarLogin(login, senha)) {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("acessoPermitido.jsp");
+				dispatcher.forward(request, response);
+			} else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("acessoNegado.jsp");
+				dispatcher.forward(request, response);
+			}
+		} catch (SQLException e) {
+			System.out.println("Caiu no SQLException");
+			e.printStackTrace();
+		} catch (ServletException e) {
+			System.out.println("Caiu no ServletException");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Caiu no IOException");
+			e.printStackTrace();
 		}
+
 	}
 
 }
