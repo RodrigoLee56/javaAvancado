@@ -10,11 +10,6 @@
 <link rel="stylesheet" href="css/indexStyle.css">
 </head>
 <body>
-<%-- 	<c:import url="https://www.youtube.com/" var="data" /> --%>
-<%-- 	<c:set var="data" value="${50*6}" /> --%>
-<%-- 	<c:out value="${'Bem vindo ao JSTL'}"/> |  --%>
-<%-- 	<c:out value="${data}"/> --%>
-	
 	<h1>Java Avançado</h1>
 	<%-- <%="Java Avançado..." %>
 	
