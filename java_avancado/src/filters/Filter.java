@@ -16,7 +16,7 @@ import connection.SingleConnection;
 @WebFilter(urlPatterns = { "/*" })
 public class Filter implements javax.servlet.Filter {
 
-	private static Connection connectio;
+	private static Connection connectio = SingleConnection.getConnection();
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -24,8 +24,9 @@ public class Filter implements javax.servlet.Filter {
 		try {
 			chain.doFilter(request, response);
 			connectio.commit();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			try {
+				e.printStackTrace();
 				connectio.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
