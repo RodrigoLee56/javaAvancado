@@ -8,10 +8,10 @@
 </head>
 <body>
 	<h3>Cadastro de Usuário</h3>
-	<form action="salvarUsuario">
+	<form action="salvarUsuarioServlet" method="post">
 		<label for="login">Login:</label>
 		<input type="text" name="login" id="login" placeholder="Login: " />
-		<label for="senha">Login:</label>
+		<label for="senha">Senha:</label>
 		<input type="password" name="password" id="password" placeholder="Senha: " />
 		<input type="submit" value="Cadastrar"/>
 	</form>
