@@ -56,7 +56,6 @@ public class UsuarioDAO {
 				usuarios.add(login);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
