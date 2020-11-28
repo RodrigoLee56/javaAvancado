@@ -24,6 +24,13 @@
 					<th>Senha</th>
 				</tr>
 			</thead>
+			
+		<!--
+			A parte do foreach é simples, items recebe 
+			a lista dá classe UsuarioDAO e o atributo var 
+			cria um identificado para poder mostrar os valores 
+			da lista referente
+		-->
 		<c:forEach items="${usuarios}" var="user">
 			<tbody>
 				<tr>
