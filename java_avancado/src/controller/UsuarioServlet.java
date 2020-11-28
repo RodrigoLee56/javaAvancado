@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,8 +30,8 @@ public class UsuarioServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		/*
-		 * A variável login e senha todas do tipo String recebe o dado passado 
-		 * da view atráves do request.getParameter("parametroDaView")
+		 * A variável login e senha todas do tipo String recebe o dado passado da view
+		 * atráves do request.getParameter("parametroDaView")
 		 */
 		String login = request.getParameter("login");
 		String senha = request.getParameter("password");
@@ -40,6 +42,10 @@ public class UsuarioServlet extends HttpServlet {
 
 		/* usuarioDao.salvar recebe um objeto do tipo Login */
 		usuarioDAO.salvar(usuario);
+
+		RequestDispatcher view = request.getRequestDispatcher("cadastroUsuario.jsp");
+		request.setAttribute("usuarios", usuarioDAO.listar());
+		view.forward(request, response);
 	}
 
 }
