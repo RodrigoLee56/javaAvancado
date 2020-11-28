@@ -15,9 +15,12 @@ public class LoginDAO {
 	}
 
 	public boolean validarLogin(String login, String senha) throws SQLException {
-		String select = "SELECT * FROM bd_java_avancado.login where login ='" + login + "'and senha ='" + senha + "'";
+		String select = "SELECT * FROM bd_java_avancado.login where usuario = ? and senha =?";
 		PreparedStatement preparedStatement = connection.prepareStatement(select);
+		preparedStatement.setString(1, login);	
+		preparedStatement.setString(2, senha);	
 		ResultSet resultSet = preparedStatement.executeQuery();
+		
 		if (resultSet.next()) {
 			return true;
 		} else {
