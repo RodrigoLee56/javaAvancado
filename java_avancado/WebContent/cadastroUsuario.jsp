@@ -22,6 +22,8 @@
 				<tr>
 					<th>Usuário</th>
 					<th>Senha</th>
+					<th>Editar</th>
+					<th>Excluir</th>
 				</tr>
 			</thead>
 			
@@ -40,6 +42,18 @@
 				
 					<td>
 						<c:out value="${user.senha}"/>
+					</td>
+					
+					<td>
+						<a href="salvarUsuarioServlet?acao=edit">
+							<img alt="Editar" src="img/svg/update.svg" width="25" height="25">
+						</a>	
+					</td>
+					
+					<td>
+						<a href="salvarUsuarioServlet?acao=delete">
+							<img alt="Excluir" src="img/svg/delete.svg" width="25" height="25">
+						</a>
 					</td>
 				</tr>
 			</tbody>
