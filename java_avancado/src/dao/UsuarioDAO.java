@@ -23,7 +23,8 @@ public class UsuarioDAO {
 			PreparedStatement insert = connection.prepareStatement(insertString);
 			insert.setString(1, login.getLogin());
 			insert.setString(2, login.getSenha());
-			insert.execute();
+			insert.executeUpdate();
+
 			connection.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -33,6 +34,42 @@ public class UsuarioDAO {
 				e1.printStackTrace();
 			}
 		}
+	}
+
+	public void delete(String login) {
+		String deleteString = "delete from login where usuario = ?";
+		try {
+			PreparedStatement delete = connection.prepareStatement(deleteString);
+			delete.setString(1, login);
+			delete.execute();
+			connection.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+
+	public Login consultar(String login) {
+		String consultarString = "select * from login where usuario ='" + login + "'";
+		try {
+			PreparedStatement consultar = connection.prepareStatement(consultarString);
+			ResultSet resultSet = consultar.executeQuery();
+			if (resultSet.next()) {
+				Login usuario = new Login();
+				usuario.setIdLogin(resultSet.getInt("idLogin"));
+				usuario.setLogin(resultSet.getString("usuario"));
+				usuario.setSenha(resultSet.getString("senha"));
+				return usuario;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+
 	}
 
 	public List<Login> listar() {
@@ -50,6 +87,7 @@ public class UsuarioDAO {
 
 			while (resultSet.next()) {
 				Login login = new Login();
+				login.setIdLogin(resultSet.getInt("idLogin"));
 				login.setLogin(resultSet.getString("usuario"));
 				login.setSenha(resultSet.getString("senha"));
 
@@ -60,5 +98,24 @@ public class UsuarioDAO {
 		}
 
 		return usuarios;
+	}
+
+	public void atualizar(Login usuario) {
+		String updateString = "update login set usuario = ?, senha = ? where idLogin = ?";
+		try {
+			PreparedStatement update = connection.prepareStatement(updateString);
+			update.setString(1, usuario.getLogin());
+			update.setString(2, usuario.getSenha());
+			update.setInt(3, usuario.getIdLogin());
+			update.executeUpdate();
+			connection.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}
 	}
 }
