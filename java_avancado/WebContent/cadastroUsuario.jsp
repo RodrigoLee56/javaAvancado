@@ -19,7 +19,7 @@
 		<input type="submit" value="Cadastrar"/>
 	</form>
 	
-	<table class="pagination" data-pagecount="3">
+	<table>
 			<thead>
 				<tr>
 					<th>Código</th>
