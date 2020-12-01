@@ -2,6 +2,7 @@ package model;
 
 public class Login {
 
+	private Integer idLogin;
 	private String login;
 	private String senha;
 
@@ -15,6 +16,13 @@ public class Login {
 		this.senha = senha;
 	}
 
+	public Login(Integer idLogin, String login, String senha) {
+		super();
+		this.idLogin = idLogin;
+		this.login = login;
+		this.senha = senha;
+	}
+
 //	public boolean validarLoginSenha(String login, String senha) {
 //		if (login.equalsIgnoreCase("Admin") && senha.equalsIgnoreCase("123")) {
 //			return true;
@@ -22,6 +30,14 @@ public class Login {
 //			return false;
 //		}
 //	}
+
+	public Integer getIdLogin() {
+		return idLogin;
+	}
+
+	public void setIdLogin(Integer idLogin) {
+		this.idLogin = idLogin;
+	}
 
 	public String getLogin() {
 		return login;

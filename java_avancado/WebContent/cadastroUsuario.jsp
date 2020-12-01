@@ -10,16 +10,19 @@
 <body>
 	<h3>Cadastro de Usuário</h3>
 	<form action="salvarUsuarioServlet" method="post">
+		<label>Código</label>
+		<input type="number" name="idLogin" id="idLogin" readonly="readonly" value="${user.idLogin}" />
 		<label for="login">Login:</label>
-		<input type="text" name="login" id="login" placeholder="Login: " />
+		<input type="text" name="login" id="login" value="${user.login}" required="required" placeholder="Login: " />
 		<label for="senha">Senha:</label>
-		<input type="password" name="password" id="password" placeholder="Senha: " />
+		<input type="password" name="senha" id="senha" value="${user.senha}" required="required" placeholder="Senha: " />
 		<input type="submit" value="Cadastrar"/>
 	</form>
 	
-	<table>
+	<table class="pagination" data-pagecount="3">
 			<thead>
 				<tr>
+					<th>Código</th>
 					<th>Usuário</th>
 					<th>Senha</th>
 					<th>Editar</th>
@@ -36,6 +39,10 @@
 		<c:forEach items="${usuarios}" var="user">
 			<tbody>
 				<tr>
+					<td>
+						<c:out value="${user.idLogin}"/>
+					</td>
+					
 					<td>		
 						<c:out value="${user.login}"/>
 					</td>
@@ -45,13 +52,13 @@
 					</td>
 					
 					<td>
-						<a href="salvarUsuarioServlet?acao=edit">
+						<a href="salvarUsuarioServlet?acao=editar&user=${user.login }">
 							<img alt="Editar" src="img/svg/update.svg" width="25" height="25">
 						</a>	
 					</td>
 					
 					<td>
-						<a href="salvarUsuarioServlet?acao=delete">
+						<a href="salvarUsuarioServlet?acao=delete&user=${user.login }">
 							<img alt="Excluir" src="img/svg/delete.svg" width="25" height="25">
 						</a>
 					</td>
